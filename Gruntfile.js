@@ -8,7 +8,8 @@ module.exports = function(grunt) {
         banner: '/*\n  <%= pkg.title || pkg.name %> <%= pkg.version %>' +
             '<%= pkg.homepage ? " <" + pkg.homepage + ">" : "" %>' + '\n' +
             '  Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>' +
-            '\n\n  Released under <%= _.pluck(pkg.licenses, "type").join(", ") %> License\n*/\n'
+        '\n\n  Released under <%= _.pluck(pkg.licenses, "type").join(", ") %> License\n*/\n',
+        cm_banner: '/*  <%= pkg.title || pkg.name %> light version <%= pkg.version %> by Cargo Media */\n'
     };
 
     var browsers = {
@@ -58,6 +59,17 @@ module.exports = function(grunt) {
         pkg: grunt.file.readJSON('package.json'),
 
         browserify: {
+            light: {
+                src: ['cm/main.js'],
+                dest: 'dist/<%= pkg.name %>.light.js',
+                options: {
+                    browserifyOptions: {
+                        standalone: 'html2canvas'
+                    },
+                    banner: meta.banner + meta.cm_banner
+                }
+            },
+
             dist: {
                 src: ['src/core.js'],
                 dest: 'dist/<%= pkg.name %>.js',
