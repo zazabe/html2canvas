@@ -3,7 +3,7 @@ var TextNodeParser = require('./TextNodeParser');
 var FakeImageLoader = require('./FakeImageLoader');
 var FakeSupport = require('./FakeSupport');
 
-window.html2canvas = function(node, options) {
+module.exports = function(node, options) {
   options = options || {};
 
   if (options.logging) {

@@ -31,12 +31,8 @@
       if (!n[o]) {
         if (!t[o]) {
           var a = typeof require == "function" && require;
-					if (!u && a) {
-						return a(o, !0);
-					}
-					if (i) {
-						return i(o, !0);
-					}
+          if (!u && a)return a(o, !0);
+          if (i)return i(o, !0);
           var f = new Error("Cannot find module '" + o + "'");
           throw f.code = "MODULE_NOT_FOUND", f
         }
@@ -50,9 +46,7 @@
     }
 
     var i = typeof require == "function" && require;
-		for (var o = 0; o < r.length; o++) {
-			s(r[o]);
-		}
+    for (var o = 0; o < r.length; o++)s(r[o]);
     return s
   })({
     1: [function(require, module, exports) {
@@ -129,7 +123,7 @@
       var FakeImageLoader = require('./FakeImageLoader');
       var FakeSupport = require('./FakeSupport');
 
-      window.html2canvas = function(node, options) {
+      module.exports = function(node, options) {
         options = options || {};
 
         if (options.logging) {
@@ -727,7 +721,7 @@
           this.b = Math.min(array[2], 255);
           if (array.length > 3) {
             this.a = array[3];
-          }
+        }
         }
 
         return (Array.isArray(array));
@@ -1373,7 +1367,7 @@
               offsetY: s[2] ? parseFloat(s[2].replace('px', '')) : 0,
               blur: s[3] ? s[3].replace('px', '') : 0
             });
-          }
+        }
         }
         return results;
       };
@@ -1394,7 +1388,7 @@
               origin: [0, 0],
               matrix: [1, 0, 0, 1, 0, 0]
             };
-          }
+        }
         }
         return this.transformData;
       };
@@ -1527,7 +1521,7 @@
             } else {
               resolve();
             }
-          }, this));
+        }, this));
         }, this));
       }
 
@@ -1608,7 +1602,7 @@
 
           if (after) {
             nodes.push(after);
-          }
+        }
         }
         return flatten(nodes);
       };
@@ -1769,7 +1763,7 @@
           log(e);
           if (this.options.strict) {
             throw e;
-          }
+        }
         }
       };
 
@@ -1779,7 +1773,7 @@
           this.renderer.ctx.save();
           if (container.hasTransform()) {
             this.renderer.setTransform(container.parseTransform());
-          }
+        }
         }
 
         if (container.node.nodeName === "INPUT" && container.node.type === "checkbox") {
@@ -1885,7 +1879,7 @@
               // Older IE has issues with "border"
               log("html2canvas: Parse: Exception caught in renderFormValue: " + e.message);
             }
-          });
+        });
           var bounds = container.parseBounds();
           wrapper.style.position = "fixed";
           wrapper.style.left = bounds.left + "px";
@@ -1923,7 +1917,7 @@
               this.renderer.text(textList[index], bounds.left, bounds.bottom);
               this.renderTextDecoration(container.parent, bounds, this.fontMetrics.getMetrics(family, size));
             }
-          }, this);
+        }, this);
         }, this);
       };
 
@@ -1967,7 +1961,7 @@
             width: container.cssInt('border' + side + 'Width'),
             color: colorTransform ? color[colorTransform[0]](colorTransform[1]) : color,
             args: null
-          };
+        };
         });
         var borderPoints = calculateCurvePoints(nodeBounds, radius, borders);
 
@@ -2114,7 +2108,7 @@
           return {
             x: a.x + (b.x - a.x) * t,
             y: a.y + (b.y - a.y) * t
-          };
+        };
         };
 
         return {
@@ -2314,7 +2308,7 @@
             if (word.length) {
               words.push(punycode.ucs2.encode(word));
             }
-          }
+        }
         }
         return words;
       }
@@ -2462,12 +2456,12 @@
               } else {
                 log("Error loading background-image", backgroundImage.args[0]);
               }
-              break;
+            break;
             case "none":
-              break;
+            break;
             default:
               log("Unknown background-image type", backgroundImage.args[0]);
-          }
+        }
         }, this);
       };
 
@@ -2553,7 +2547,7 @@
           } catch (e) {
             this.taintCtx = document.createElement("canvas").getContext("2d");
             imageContainer.tainted = true;
-          }
+        }
         }
 
         return imageContainer.tainted;
@@ -2773,7 +2767,7 @@
             output += String.fromCharCode(byte1, byte2);
           } else {
             output += String.fromCharCode(byte1, byte2, byte3);
-          }
+        }
         }
 
         return output;
@@ -2832,8 +2826,8 @@
               image: null
             });
           }
-          args = [];
-          method = prefix = definition = block = '';
+        args = [];
+        method = prefix = definition = block = '';
         };
         args = [];
         method = prefix = definition = block = '';
